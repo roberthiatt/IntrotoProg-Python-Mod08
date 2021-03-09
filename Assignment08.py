@@ -15,6 +15,7 @@ file_name = "Products.dat"
 list_of_product_objects = []
 
 class Product(object):
+# docstring below
     """Stores data about a product:
     properties:
         product_name: (string) with the product  name
@@ -27,7 +28,7 @@ class Product(object):
 
     str_Product = ""
     flt_Price = 0
-
+# constructor
     def __init__(self, product= '', price = 0):
         self.str_Product = product
         self.flt_Price = price
@@ -65,7 +66,7 @@ class FileProcessor:
 
     @staticmethod
     def save_data_to_file(file_name, list_of_product_objects):
-        """Writes data to a binary file"""
+        """Writes data to binary file"""
         file = open(file_name, "wb")
         p = pickle.dump(list_of_product_objects, file)
         file.close()
@@ -76,7 +77,7 @@ class FileProcessor:
 class IO:
     @staticmethod
     def print_menu_tasks():
-        """display menu of choices"""
+        """User Menu"""
         print(
             '''
            Welcome to the Home Inventory System! \n
@@ -90,13 +91,13 @@ class IO:
 
     @staticmethod
     def menu_choice():
-        """ Gets the menu choice from a user"""
+        """User enters choice"""
         choice = str(input("Enter menu option (1 - 3): "))
         return choice
 
     @staticmethod
     def get_product_data():
-        """"get product data from user"""
+        """"User enters inventory"""
         print()
         product = str(input("Enter Product: "))
         value = float(input("Enter Price: "))
@@ -136,7 +137,7 @@ while True:
         IO.print_inventory(list_of_product_objects)
         continue
 
-# Allow user to enter data ------------------------------------------------- #
+# Allow user to enter data --------------------------------------------------------------------- #
 
     elif user_choice.strip() == '2':
         IO.get_product_data()
